@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure aur chai</title>
+</head>
+<body style="background-color: #212121;">
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+</body>
+<script>
+    // Lexical scoping bolta hein inner function ke pass outer function ke variables ka access hota ehin
+    ////function init(){
+    ////let name = "Mozila";
+    ////    function displayName(){
+    ////    console.log(name);
+    ////    }
+    ////    displayName();
+    ////}
+    ////init();
+
+
+    // Closure - function ka scope ke sath sath lexical scope bhi return hota ehin
+
+    ////function makeFunc(){
+    ////    const name = "Mozilla";
+    ////    function displayName(){
+    ////        console.log(name);
+    ////
+    ////    }
+    ////    return displayName;
+    ////}
+    ////const myFunc = makeFunc();
+    ////myFunc();
+
+        //document.getElementById("orange").onclick = ()=>{
+        //    document.body.style.backgroundColor = "orange"
+        //}
+        //document.getElementById("green").onclick = ()=>{
+        //    document.body.style.backgroundColor = "green"
+        //}
+
+
+        function clickHandler(color){
+            //document.body.style.backgroundColor = `${color}`
+            return function(){
+                document.body.style.backgroundColor = `${color}`
+            }
+        }
+
+        document.getElementById("orange").onclick = clickHandler("orange");
+        document.getElementById("green").onclick = clickHandler("green");
+
+</script>
+</html>
